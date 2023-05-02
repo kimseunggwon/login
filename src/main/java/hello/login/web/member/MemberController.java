@@ -27,10 +27,10 @@ public class MemberController {
 
     /**
      *  BindingResult = 검증 오류를 보관하는 객체
-     *  @Valid = 유효성검  // errors.properties에 설정을 통해 @NotEmpty 같은 어노테이션에 메시지를 지정할 수 있다.
+     *  @Valid = 유효성 검증  // errors.properties에 설정을 통해 @NotEmpty 같은 어노테이션에 메시지를 지정할 수 있다.
      */
     @PostMapping("/add")
-    public String save(@Valid @ModelAttribute Member member, BindingResult bindingResult) { // BindingResult = 검증 오류를 보관하는 객체
+    public String save(@Valid @ModelAttribute Member member, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "members/addMemberForm.html";
         }

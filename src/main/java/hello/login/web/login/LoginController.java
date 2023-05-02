@@ -154,6 +154,9 @@ public class LoginController {
     }
 
 
+    /**
+     *  소멸 쿠키 메서드 생성
+     */
     private static void expireCookie(HttpServletResponse response,String cookieName) {
         Cookie cookie = new Cookie( cookieName,null);
         cookie.setMaxAge(0);
