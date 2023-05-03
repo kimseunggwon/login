@@ -32,7 +32,7 @@ public class MemberController {
     @PostMapping("/add")
     public String save(@Valid @ModelAttribute Member member, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "members/addMemberForm.html";
+            return "members/addMemberForm.html"; // 에러 발생시 회원가입 홈페이지로
         }
 
         memberRepository.save(member);

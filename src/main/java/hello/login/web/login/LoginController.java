@@ -47,7 +47,7 @@ public class LoginController {
          */
 
         // 쿠키에 시간 정보를 주지 않으면 세션 쿠기(브라우저 종료시 모두 종료)
-        // 로그인에 성공하면 쿠키를 생성하고 ,response에 담는다. 쿠키 이름은 memberId이고 값은 회원의 id를 담아둔다
+        // 로그인에 성공하면 쿠키를 생성하고 ,response 에 담는다. 쿠키 이름은 memberId 이고 값은 회원의 id를 담아둔다
         // 웹 브라우저는 종료 전까지 회원의 id를 서버에 계속 보내줄 것이다.
         Cookie idCookie = new Cookie("memberId",String.valueOf(loginMember.getId()));
         response.addCookie(idCookie);
@@ -73,13 +73,13 @@ public class LoginController {
 
         //로그인 성공 처리
 
-        //세션 관리자를 통해 세션을 생성하고, 회원 데이터 보관
+        //세션 관리자를 통해 세션을 생성하고, 회원 데이터 보관 + 직접 만든 세션 사용해보기
         sessionManager.createSession(loginMember, response);
 
         return "redirect:/";
     }
 
-    //    @PostMapping("/login")
+    //@PostMapping("/login")
     public String loginV3(@Valid @ModelAttribute LoginForm form, BindingResult bindingResult, HttpServletRequest request) {
         if (bindingResult.hasErrors()) {
             return "login/loginForm";
@@ -93,7 +93,7 @@ public class LoginController {
         }
 
         //로그인 성공 처리
-        //세션이 있으면 있는 세션 반환, 없으면 신규 세션을 생성
+        //세션이 있으면 있는 세션 반환, 없으면 신규 세션을 생성 + 서블릿이 제공하는 HttpSession 사용
         HttpSession session = request.getSession();
         //세션에 로그인 회원 정보 보관
         session.setAttribute(SessionConst.LOGIN_MEMBER, loginMember);
@@ -147,6 +147,7 @@ public class LoginController {
     @PostMapping("/logout")
     public String logoutV3(HttpServletRequest request) {
         HttpSession session = request.getSession(false);
+        // 세션 무효화
         if (session != null) {
             session.invalidate();
         }

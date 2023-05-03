@@ -34,11 +34,11 @@ public class MemberRepository {
               }
           } */
 
-        /**  위에 로직이랑 밑에랑 똑같다 그러나 filter를 이용해 stream으로 루프를 돌리고 하는게 더 깔끔하다
+        /**  위에 로직이랑 밑에랑 똑같다 그러나 filter를 이용해 stream으로 루프를 돌리고 하는게 더 간결
          */
         return findAll().stream()
                   .filter(member -> member.getLoginId().equals(loginId))
-                  .findFirst(); // 먼저 filter처리된 애를 반환해주는거
+                  .findFirst(); // 먼저 filter 처리된것을 반환
     }
 
 

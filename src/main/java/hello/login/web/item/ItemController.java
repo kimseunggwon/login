@@ -65,6 +65,9 @@ public class ItemController {
         item.setPrice(form.getPrice());
         item.setQuantity(form.getQuantity());
 
+        /**
+         *  저장 완료후 itemId + status  => redirect
+         */
         Item savedItem = itemRepository.save(item);
         redirectAttributes.addAttribute("itemId", savedItem.getId());
         redirectAttributes.addAttribute("status", true);
@@ -94,6 +97,7 @@ public class ItemController {
             return "items/editForm";
         }
 
+        // form 객체를 Item 변환
         Item itemParam = new Item();
         itemParam.setItemName(form.getItemName());
         itemParam.setPrice(form.getPrice());
