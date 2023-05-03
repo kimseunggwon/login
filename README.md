@@ -1,5 +1,12 @@
 # 📌login-validation-ex 연습 프로젝트 
 
+# 개발 환경 및 기술
+- Intellij IDEA Ultimate 
+- Java 11
+- Spring Boot 2.4.4
+- validation
+- thymeleaf
+
 # 상품 관리(등록 수정) => 회원가입 => 로그인
 
 1.홈 화면 - 로그인 전 회원 가입
