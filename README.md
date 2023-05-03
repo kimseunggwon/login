@@ -1,4 +1,4 @@
-# login-validation-ex 연습 프로젝트 
+# 📌login-validation-ex 연습 프로젝트 
 
 # 상품 관리(등록 수정) => 회원가입 => 로그인
 
